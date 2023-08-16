@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html>
+    {% extends "base.html" %}
+
+{% block title %} Test Details {% endblock %}
+
+{%block div%}
 <head>
     <title>File Upload and Parse</title>
     <link rel="stylesheet" href="/static/draganddrop.css">
@@ -12,4 +17,5 @@
 
     <script src="/static/draganddrop.js"></script>
 </body>
+{% endblock %} 
 </html>
