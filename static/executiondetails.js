@@ -62,7 +62,7 @@ fetch('/api/run_ids')
         }
     }
     changeColor();
-testNameSelect.addEventListener('change', () => {
+testNameSelect.addEventListener('click', () => {
     const selectedRunId = runIdSelect.value;
     const selectedTestName = testNameSelect.value;
     if(selectedRunId == null){
