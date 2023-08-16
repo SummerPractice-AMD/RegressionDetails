@@ -1,0 +1,40 @@
+<html>
+{% extends "base.html" %}
+
+{% block title %} Execution Details {% endblock %}
+
+{%block div%}
+
+
+<head>
+  <script src="\static\executiondetails.js"></script>
+</head>
+
+<h1>Execution Details</h1>
+<div class="container">
+  <div class="card-body">
+  <div class="table-scrollsd">
+    <div class="row">
+  <div class="col-4">
+    <select class="form-select form-select-lg mb-3" aria-label="Large select example" id="comboBoxRunId" name="comboBoxRunId">
+      <option value="0" selected>Select run_id</option>
+    </select>
+    <select class="form-select form-select-lg mb-3" aria-label="Large select example" id="comboBoxTestNames" name="comboBoxTestNames">
+      <option selected>Select Test name</option>
+    </select>
+    <input class="form-control" type="text" value="" aria-label="Disabled input example"  readonly id="statusInput">
+  </div>
+  <div class="col-8">
+    <div data-bs-spy="scroll" id="log_lineItem" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock %} 
+
+
+</html>
