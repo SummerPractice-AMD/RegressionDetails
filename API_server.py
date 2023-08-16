@@ -2,6 +2,7 @@ from flask import Flask, jsonify, render_template,request
 from bdqueries import BDQueries
 from pymongo import MongoClient
 from introducereDB import  DatabaseLoader
+from DBCollector import load_config, connect_to_database
 from generatejson import parse
 import yaml
 
@@ -131,12 +132,14 @@ def get_pass_rates():
 
 @app.route('/api/ingest', methods=['POST'])
 def ingest():
+    config = load_config("config.yml")
+    loader = connect_to_database(config)
     try:
         file = request.files['file']
         if file:
-            file_content = file.read()
+            file_content = file.read().decode("utf-8")
             parsed_json = parse(file_content)
-            database_loader = DatabaseLoader()
+            database_loader = loader
             database_loader.load_from_json(parsed_json)
             return jsonify({'message': 'File ingested and parsed successfully'}), 200
         else:
@@ -192,3 +195,4 @@ if __name__ == "__main__":
     )
 
     app.run(debug=True)
+
